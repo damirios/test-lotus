@@ -1,7 +1,8 @@
 import { Fragment, useEffect, useState } from "react";
 
 const getCurrentDateInSeconds = function() {
-    return Math.floor(Date.now() / 1000);
+    const timezoneShift = new Date().getTimezoneOffset(); // в минутах
+    return Math.floor( (Date.now() - (timezoneShift * 60 * 1000)) / 1000);
 }
 
 
