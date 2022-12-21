@@ -62,16 +62,27 @@ html, body {
   color: blue;
   text-transform: uppercase;
 }
-.table-box__title-settings {
-  width: 400px;
+@media (max-width: 500px) {
+  .table-box__title {
+    font-weight: 400;
+  }
 }
 .table-box__cell {
   letter-spacing: 0.5px;
   padding: 5px 15px;
   text-align: center;
 }
+@media (max-width: 700px) {
+  .table-box__cell {
+    font-size: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .table-box__cell {
+    font-size: 8px;
+  }
+}
 .table-box__param {
-  width: 400px;
   text-align: left;
 }
 .table-box__prices p {
@@ -87,36 +98,10 @@ html, body {
   color: green;
 }
 
-.queue {
-  display: flex;
-}
-.queue__title {
-  flex: 0 0 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.queue__users {
-  flex: 1 0 auto;
-  display: flex;
-  align-items: center;
-}
-.queue__user {
-  flex: 1 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.queue__timer {
-  flex: 1 0 auto;
-}
-
 .timer {
   min-height: 100px;
-  display: flex;
 }
 .timer__user {
-  flex: 0 0 25%;
   font-size: 14px;
   font-weight: 700;
   color: #fff;
@@ -126,4 +111,9 @@ html, body {
 }
 .timer__user_active {
   background-color: rgb(248, 101, 101);
+}
+@media (max-width: 700px) {
+  .timer__user {
+    font-size: 10px;
+  }
 }

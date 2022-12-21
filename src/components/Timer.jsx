@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 const getCurrentDateInSeconds = function() {
     return Math.floor(Date.now() / 1000);
@@ -19,7 +19,7 @@ export default function Timer(props) {
     useEffect(() => {
         const interval = setInterval(() => setSeconds(getCurrentDateInSeconds()), 1000);
         const nextUserNumber = Math.ceil((seconds + 1) / intervalDuration) % usersNumber + 1;
-        console.log(nextUserNumber);
+        
         if (currentUserNumber !== nextUserNumber) {
             setCurrentUserNumber(nextUserNumber);
         }
@@ -31,26 +31,26 @@ export default function Timer(props) {
     }, [seconds]);
 
     return (
-        <div className="queue__timer timer">
+        <Fragment>
             {usersArray.map((user, index) => {
                 if (index + 1 === currentUserNumber) {
                     return (
-                        <div key={index} className={'timer__user timer__user_active'}>
+                        <td key={index} className={'timer__user timer__user_active'}>
                             <p>Сейчас ваш ход</p>
                             <p>До конца хода осталось:</p>
                             <p>{minutesLeft === 0 ? '00' : 
                                 minutesLeft < 10 ? `0${minutesLeft}` : minutesLeft}:
                                 {secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft}</p>
-                        </div>
+                        </td>
                     );
                 } else {
                     return (
-                        <div key={index} className="timer__user">
+                        <td key={index} className="timer__user">
                             
-                        </div>
+                        </td>
                     );
                 }
             })}
-        </div>
+        </Fragment>
     );
 }

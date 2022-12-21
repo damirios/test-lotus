@@ -1,5 +1,6 @@
 import settings from '../mock-server/settings';
 import users from '../mock-server/users';
+import Timer from './Timer';
 
 export default function Table(props) {
     const {className} = props;
@@ -8,6 +9,12 @@ export default function Table(props) {
         <div className={className}>
             <table className="table-box__table">
                 <tbody className='table-box__body'>
+                    <tr className="table-box__timer timer">
+                        <td  className="timer__title">
+                            <h2>Ход</h2>
+                        </td>
+                        <Timer usersNumber={Object.keys(users).length} intervalDuration={120} />
+                    </tr>
                     <tr className="table-box__row table-box__first-row">
                         <th className="table-box__cell table-box__title table-box__title-settings">
                             Параметры и требования

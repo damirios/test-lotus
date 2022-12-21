@@ -3,6 +3,7 @@ import users from "../mock-server/users";
 import Timer from "./Timer";
 
 export default function Content() {
+    
     return (
         <main className="content">
             <div className="container">
@@ -12,8 +13,8 @@ export default function Content() {
                     </h1>
                     <div className="content__auction auction">
                         <div className="auction__queue queue">
-                            <h2 className="queue__title">Ход</h2>
-                            <Timer usersNumber={4} intervalDuration={10} />
+                            
+                            {/* <Timer usersNumber={Object.keys(users).length} intervalDuration={120} /> */}
                             {/* <div className="queue__users">
                                 {Object.values(users).map((user, index) => {
                                     const newIndex = index + 1;
